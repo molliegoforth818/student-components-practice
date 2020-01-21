@@ -78,10 +78,12 @@ const students = [
 
 // Update its contents with the return value of the function
 //studentContainer.innerHTML = createStudentComponent()
-const createStudentComponent = (name, status) => {
+const createStudentComponent = (studentInfo, status) => {
     return `
         <div class="student">
-            <h1 class ="xx-large ${status}">${name}</h1>
+            <h1 class ="xx-large ${status}">${studentInfo.name}</h1>
+        <section class="bordered dashed section--padded">${studentInfo.subject}</section>
+        <aside class="pushRight">${studentInfo.info}</aside>
         </div>
     `
 }
@@ -96,7 +98,7 @@ for (const student of students) {
         status = "failing" 
     } 
     studentContainer.innerHTML += createStudentComponent(
-        student.name,
+        student,
         status
     )
 } 
